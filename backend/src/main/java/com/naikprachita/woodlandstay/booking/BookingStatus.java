@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.booking;
+package com.naikprachita.woodlandstay.booking;
 
 public enum BookingStatus {
     UNCONFIRMED,

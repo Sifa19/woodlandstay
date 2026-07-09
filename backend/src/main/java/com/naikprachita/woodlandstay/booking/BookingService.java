@@ -1,9 +1,9 @@
-package com.naikprachita.thewoodnest.booking;
+package com.naikprachita.woodlandstay.booking;
 
-import com.naikprachita.thewoodnest.cabin.Cabin;
-import com.naikprachita.thewoodnest.cabin.CabinRepository;
-import com.naikprachita.thewoodnest.guest.Guest;
-import com.naikprachita.thewoodnest.guest.GuestRepository;
+import com.naikprachita.woodlandstay.cabin.Cabin;
+import com.naikprachita.woodlandstay.cabin.CabinRepository;
+import com.naikprachita.woodlandstay.guest.Guest;
+import com.naikprachita.woodlandstay.guest.GuestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

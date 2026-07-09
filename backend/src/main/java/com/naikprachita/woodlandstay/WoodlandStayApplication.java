@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest;
+package com.naikprachita.woodlandstay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.TimeZone;
 
 @SpringBootApplication
-public class ThewoodnestApplication {
+public class WoodlandStayApplication {
 
 	public static void main(String[] args) {
 
@@ -15,6 +15,6 @@ public class ThewoodnestApplication {
 		System.out.println("Timezone after change = "
 				+ TimeZone.getDefault().getID());
 
-		SpringApplication.run(ThewoodnestApplication.class, args);
+		SpringApplication.run(WoodlandStayApplication.class, args);
 	}
 }

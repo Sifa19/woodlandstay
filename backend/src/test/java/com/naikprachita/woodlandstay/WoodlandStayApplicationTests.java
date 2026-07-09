@@ -1,10 +1,10 @@
-package com.naikprachita.thewoodnest;
+package com.naikprachita.woodlandstay;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ThewoodnestApplicationTests {
+class WoodlandStayApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.config;
+package com.naikprachita.woodlandstay.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

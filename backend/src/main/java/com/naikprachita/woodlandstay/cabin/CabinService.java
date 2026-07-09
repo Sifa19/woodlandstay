@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.cabin;
+package com.naikprachita.woodlandstay.cabin;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

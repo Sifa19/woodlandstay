@@ -1,6 +1,5 @@
-package com.naikprachita.thewoodnest.guest;
+package com.naikprachita.woodlandstay.guest;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ public class GuestController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @PostMapping
     public void createGuest(@RequestBody Guest guest){
         guestService.createGuest(guest);
     }

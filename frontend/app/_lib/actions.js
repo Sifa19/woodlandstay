@@ -1,6 +1,5 @@
 "use server";
 
-import { auth, signIn, signOut } from "./auth";
 import {
   deleteBooking,
   getBookings,
@@ -109,26 +108,6 @@ export async function createBooking(bookingData, formData) {
 
   const numGuests = parseInt(formData.get("numGuests"));
   const observations = formData.get("observations").slice(0, 1000);
-
-  // const newBooking = {
-  //   ...bookingData,
-  //   guestId: guestId,
-  //   numGuests,
-  //   observations,
-  //   extrasPrice: 0,
-  //   totalPrice: bookingData.cabinPrice,
-  //   isPaid: false,
-  //   hasBreakfast: false,
-  //   status: "unconfirmed",
-  // };
-  //   const bookingData = {
-  //   guestId: user.id,
-  //   cabinId: id,
-  //   startDate,
-  //   endDate,
-  //   numNights,
-  //   cabinPrice,
-  // };
   const newBooking = {
     ...bookingData,
     numGuests,

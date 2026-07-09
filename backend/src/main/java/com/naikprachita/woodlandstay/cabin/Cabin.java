@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.cabin;
+package com.naikprachita.woodlandstay.cabin;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

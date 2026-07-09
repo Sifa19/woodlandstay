@@ -1,6 +1,5 @@
-package com.naikprachita.thewoodnest.booking;
+package com.naikprachita.woodlandstay.booking;
 
-import com.naikprachita.thewoodnest.guest.Guest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

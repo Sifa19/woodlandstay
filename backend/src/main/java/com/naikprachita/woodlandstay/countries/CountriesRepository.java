@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.countries;
+package com.naikprachita.woodlandstay.countries;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.countries;
+package com.naikprachita.woodlandstay.countries;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

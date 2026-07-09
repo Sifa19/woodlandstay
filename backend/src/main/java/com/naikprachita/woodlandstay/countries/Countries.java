@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.countries;
+package com.naikprachita.woodlandstay.countries;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

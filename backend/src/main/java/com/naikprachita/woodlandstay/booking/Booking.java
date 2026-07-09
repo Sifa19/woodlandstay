@@ -1,7 +1,7 @@
-package com.naikprachita.thewoodnest.booking;
+package com.naikprachita.woodlandstay.booking;
 
-import com.naikprachita.thewoodnest.cabin.Cabin;
-import com.naikprachita.thewoodnest.guest.Guest;
+import com.naikprachita.woodlandstay.cabin.Cabin;
+import com.naikprachita.woodlandstay.guest.Guest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

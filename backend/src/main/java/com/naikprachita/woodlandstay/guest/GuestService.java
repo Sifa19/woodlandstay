@@ -1,4 +1,4 @@
-package com.naikprachita.thewoodnest.guest;
+package com.naikprachita.woodlandstay.guest;
 
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ public class GuestService {
 
     public void createGuest(Guest guest) {
         if(guestRepository.existsByEmail(guest.getEmail())){
-            throw new RuntimeException("Guest Already Exists");
+            return;
         }
         guestRepository.save(guest);
     }

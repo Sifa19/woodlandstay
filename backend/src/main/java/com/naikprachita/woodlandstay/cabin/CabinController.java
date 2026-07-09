@@ -1,6 +1,5 @@
-package com.naikprachita.thewoodnest.cabin;
+package com.naikprachita.woodlandstay.cabin;
 
-import com.naikprachita.thewoodnest.cabin.CabinService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
