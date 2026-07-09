@@ -1,0 +1,71 @@
+# =========================
+# Spring Boot / Java
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# =========================
+# Next.js
+# =========================
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+
+# npm
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# =========================
+# Environment Files
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+frontend/.env
+frontend/.env.local
+
+backend/.env
+backend/.env.local
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Temporary Files
+# =========================
+*.swp
+*.swo
