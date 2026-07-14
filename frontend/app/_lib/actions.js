@@ -25,8 +25,6 @@ export async function updateGuestProfile(data) {
 
   //if (!session) throw new Error("You must be logged in");
 
-  //input from form
-  console.log("data from form:", data);
   const email = data.get("emailId");
   const nationalId = data.get("nationalId");
   const [nationality, countryFlag] = data.get("nationality").split("-");
@@ -44,7 +42,7 @@ export async function updateGuestProfile(data) {
   };
 
   //======= #3. UPDATE THE DATA IN DATABASE =======
-  updateGuest(email, updateData);
+  await updateGuest(email, updateData);
 
   //======= #4. REFRESH THE CACHE =======
   //to make sure UI doesnt get stale data
@@ -68,7 +66,7 @@ export async function deleteReservation(bookingId) {
   // }
 
   //step3: perform action
-  deleteBooking(bookingId);
+  await deleteBooking(bookingId);
 
   //step4 : update ui
   revalidatePath("/account/reservations");
@@ -93,7 +91,7 @@ export async function editReservationDetails(data) {
   }
 
   //step3: perform action
-  updateBooking(id, { numGuests, observations });
+  await updateBooking(id, { numGuests, observations });
 
   //step4 : update ui (revalidation should happens before redirect)
   revalidatePath(`/account/reservations/edit/${id}`);
@@ -119,9 +117,7 @@ export async function createBooking(bookingData, formData) {
     status: "UNCONFIRMED",
   };
 
-  console.log(newBooking);
-
-  createNewBooking(newBooking);
+  await createNewBooking(newBooking);
 
   revalidatePath(`/cabins/${bookingData.cabinId}`);
 
