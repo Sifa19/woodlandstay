@@ -1,32 +1,33 @@
 package com.naikprachita.woodlandstay.guest;
 
+import com.naikprachita.woodlandstay.guest.dto.GuestRequest;
+import com.naikprachita.woodlandstay.guest.dto.GuestResponse;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/guests")
 public class GuestController {
 
     private final GuestService guestService;
 
-    GuestController(GuestService guestService){
-        this.guestService = guestService;
-    }
-
     @GetMapping("/{emailId}")
-    public Guest getGuest(@PathVariable String emailId){
+    public GuestResponse getGuest(@PathVariable String emailId){
         System.out.println(emailId);
         return guestService.getGuest(emailId);
     }
 
     @PatchMapping("/{email}")
-    public ResponseEntity<Void> updateGuest(@PathVariable String email, @RequestBody Guest guest){
-        guestService.updateGuestDetails(email,guest.getCountryFlag(),guest.getNationality(), guest.getNationalId());
+    public ResponseEntity<Void> updateGuest(@PathVariable String email,@Valid @RequestBody GuestRequest request){
+        guestService.updateGuestDetails(email,request.getCountryFlag(),request.getNationality(), request.getNationalId());
         return ResponseEntity.ok().build();
     }
 
     @PostMapping
-    public void createGuest(@RequestBody Guest guest){
-        guestService.createGuest(guest);
+    public void createGuest(@Valid @RequestBody GuestRequest request){
+        guestService.createGuest(request);
     }
 }

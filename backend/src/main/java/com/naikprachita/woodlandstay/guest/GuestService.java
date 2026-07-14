@@ -1,18 +1,22 @@
 package com.naikprachita.woodlandstay.guest;
 
+import com.naikprachita.woodlandstay.guest.dto.GuestRequest;
+import com.naikprachita.woodlandstay.guest.dto.GuestResponse;
+import com.naikprachita.woodlandstay.guest.mapper.GuestMapper;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class GuestService {
 
     public final GuestRepository guestRepository;
+    public final GuestMapper guestMapper;
 
-    GuestService(GuestRepository guestRepository){
-        this.guestRepository = guestRepository;
-    }
-
-    public Guest getGuest(String email) {
-        return guestRepository.findByEmail(email);
+    public GuestResponse getGuest(String email) {
+        Guest guest = guestRepository.findByEmail(email);
+        return guestMapper.toResponse(guest);
     }
 
     public void updateGuestDetails(String email,String countryFlag,String nationality,String nationalId){
@@ -23,10 +27,10 @@ public class GuestService {
         guestRepository.save(guest);
     }
 
-    public void createGuest(Guest guest) {
+    public void createGuest(GuestRequest guest) {
         if(guestRepository.existsByEmail(guest.getEmail())){
             return;
         }
-        guestRepository.save(guest);
+        guestRepository.save(guestMapper.toGuest(guest));
     }
 }

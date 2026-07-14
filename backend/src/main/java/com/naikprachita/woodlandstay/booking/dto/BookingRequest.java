@@ -2,8 +2,6 @@ package com.naikprachita.woodlandstay.booking.dto;
 
 
 import com.naikprachita.woodlandstay.booking.BookingStatus;
-import com.naikprachita.woodlandstay.cabin.Cabin;
-import com.naikprachita.woodlandstay.guest.Guest;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
