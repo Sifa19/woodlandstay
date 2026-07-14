@@ -12,9 +12,6 @@ public class WoodlandStayApplication {
 
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kolkata"));
 
-		System.out.println("Timezone after change = "
-				+ TimeZone.getDefault().getID());
-
 		SpringApplication.run(WoodlandStayApplication.class, args);
 	}
 }

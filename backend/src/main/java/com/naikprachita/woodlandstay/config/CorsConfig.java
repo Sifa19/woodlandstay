@@ -21,6 +21,19 @@ public class CorsConfig {
                                 "http://localhost:3000")
                         .allowedMethods("*");
             }
+
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//
+//                registry.addMapping("/**")
+//                        .allowedOrigins(
+//                                "https://woodlandstay.vercel.app"
+//                        )
+//                        .allowedMethods("GET","POST","PUT","PATCH","DELETE")
+//                        .allowedHeaders("*");
+//            }
         };
+
+
     }
 }

@@ -1,5 +1,6 @@
 package com.naikprachita.woodlandstay.guest;
 
+import com.naikprachita.woodlandstay.exception.ResourceNotFoundException;
 import com.naikprachita.woodlandstay.guest.dto.GuestRequest;
 import com.naikprachita.woodlandstay.guest.dto.GuestResponse;
 import com.naikprachita.woodlandstay.guest.mapper.GuestMapper;
@@ -15,12 +16,12 @@ public class GuestService {
     public final GuestMapper guestMapper;
 
     public GuestResponse getGuest(String email) {
-        Guest guest = guestRepository.findByEmail(email);
+        Guest guest = guestRepository.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException(("Guest not found")));
         return guestMapper.toResponse(guest);
     }
 
     public void updateGuestDetails(String email,String countryFlag,String nationality,String nationalId){
-        Guest guest = guestRepository.findByEmail(email);
+        Guest guest = guestRepository.findByEmail(email).orElseThrow(()-> new ResourceNotFoundException(("Guest not found")));
         guest.setCountryFlag(countryFlag);
         guest.setNationality(nationality);
         guest.setNationalId(nationalId);

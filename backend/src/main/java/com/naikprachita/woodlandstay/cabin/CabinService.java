@@ -2,6 +2,7 @@ package com.naikprachita.woodlandstay.cabin;
 
 import com.naikprachita.woodlandstay.cabin.dto.CabinResponse;
 import com.naikprachita.woodlandstay.cabin.mapper.CabinMapper;
+import com.naikprachita.woodlandstay.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class CabinService {
 
     public CabinResponse getCabin(Long id) {
         Cabin cabin = cabinRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Cabin not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("Cabin not found"));
         return cabinMapper.toResponse(cabin);
     }
 }

@@ -5,6 +5,7 @@ import com.naikprachita.woodlandstay.booking.dto.BookingResponse;
 import com.naikprachita.woodlandstay.booking.mapper.BookingMapper;
 import com.naikprachita.woodlandstay.cabin.Cabin;
 import com.naikprachita.woodlandstay.cabin.CabinRepository;
+import com.naikprachita.woodlandstay.exception.ResourceNotFoundException;
 import com.naikprachita.woodlandstay.guest.Guest;
 import com.naikprachita.woodlandstay.guest.GuestRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,13 +34,13 @@ public class  BookingService{
 
     public BookingResponse getBooking(Long bookingId) {
         Booking booking = bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new RuntimeException("Booking not found"));;
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found"));;
         return bookingMapper.toResponse(booking);
     }
 
     public void updateBookingDetails(Long bookingId, Integer numGuests, String observations) {
         Booking booking = bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new RuntimeException("Booking not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
         booking.setNumGuests(numGuests);
         booking.setObservations(observations);
         bookingRepository.save(booking);
@@ -58,10 +59,10 @@ public class  BookingService{
     public void createBooking(BookingRequest request) {
 
         Cabin cabin = cabinRepository.findById(request.getCabinId())
-                .orElseThrow(() -> new RuntimeException("Cabin not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cabin not found"));
 
         Guest guest = guestRepository.findById(request.getGuestId())
-                .orElseThrow(() -> new RuntimeException("Guest not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Guest not found"));
 
         Booking booking = new Booking();
 

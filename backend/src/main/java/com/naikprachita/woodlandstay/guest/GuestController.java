@@ -16,7 +16,6 @@ public class GuestController {
 
     @GetMapping("/{emailId}")
     public GuestResponse getGuest(@PathVariable String emailId){
-        System.out.println(emailId);
         return guestService.getGuest(emailId);
     }
 
