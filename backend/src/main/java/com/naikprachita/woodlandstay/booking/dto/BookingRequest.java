@@ -13,18 +13,17 @@ import java.time.LocalDate;
 public class BookingRequest {
 
     @NotNull
-    private Long id;
-
-    @NotNull
     private Long cabinId;
 
     @NotNull
     private Long guestId;
 
     @NotNull
+    @FutureOrPresent
     private LocalDate startDate;
 
     @NotNull
+    @Future
     private LocalDate endDate;
 
     @NotNull

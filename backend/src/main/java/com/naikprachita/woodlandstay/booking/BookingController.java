@@ -33,7 +33,7 @@ public class BookingController {
     }
 
     @PatchMapping("/{bookingId}")
-    public ResponseEntity<Void> updateGuest(@PathVariable Long bookingId, @RequestBody BookingUpdateRequest request){
+    public ResponseEntity<Void> updateBooking(@PathVariable Long bookingId,@Valid @RequestBody BookingUpdateRequest request){
         bookingService.updateBookingDetails(bookingId,request.getNumGuests(),request.getObservations());
         return ResponseEntity.ok().build();
     }
@@ -43,7 +43,7 @@ public class BookingController {
         return bookingService.getBookedDates(cabinId);
     }
 
-    @PutMapping("/booking")
+    @PostMapping("/booking")
     public void createBooking(@Valid  @RequestBody BookingRequest request){
         bookingService.createBooking(request);
     }
