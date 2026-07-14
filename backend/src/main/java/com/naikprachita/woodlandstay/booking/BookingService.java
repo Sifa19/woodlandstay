@@ -1,5 +1,8 @@
 package com.naikprachita.woodlandstay.booking;
 
+import com.naikprachita.woodlandstay.booking.dto.BookingRequest;
+import com.naikprachita.woodlandstay.booking.dto.BookingResponse;
+import com.naikprachita.woodlandstay.booking.mapper.BookingMapper;
 import com.naikprachita.woodlandstay.cabin.Cabin;
 import com.naikprachita.woodlandstay.cabin.CabinRepository;
 import com.naikprachita.woodlandstay.guest.Guest;
@@ -17,17 +20,21 @@ public class  BookingService{
     private final BookingRepository bookingRepository;
     private final CabinRepository cabinRepository;
     private final GuestRepository guestRepository;
+    private final BookingMapper bookingMapper;
 
-    public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
+
+    public List<BookingResponse> getAllBookings() {
+        return bookingRepository.findAll().stream().map(bookingMapper::toResponse).toList();
     }
 
-    public List<Booking> getGuestBookings(Long guestId) {
-        return bookingRepository.findByGuestId(guestId);
+    public List<BookingResponse> getGuestBookings(Long guestId) {
+        return bookingRepository.findByGuestId(guestId).stream().map(bookingMapper::toResponse).toList();
     }
 
-    public Booking getBooking(Long bookingId) {
-        return bookingRepository.findById(bookingId).get();
+    public BookingResponse getBooking(Long bookingId) {
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new RuntimeException("Booking not found"));;
+        return bookingMapper.toResponse(booking);
     }
 
     public void updateBookingDetails(Long bookingId, Integer numGuests, String observations) {
@@ -37,17 +44,17 @@ public class  BookingService{
         bookingRepository.save(booking);
     }
 
-    public List<Booking> getBookedDates(Long cabinId){
+    public List<BookingResponse> getBookedDates(Long cabinId){
 
         return bookingRepository.getBookedDates(
                 cabinId,
                 LocalDate.now(),
                 BookingStatus.CHECKED_IN
-        );
+        ).stream().map(bookingMapper::toResponse).toList();
 
     }
 
-    public void createBooking(CreateBookingRequest  request) {
+    public void createBooking(BookingRequest request) {
 
         Cabin cabin = cabinRepository.findById(request.getCabinId())
                 .orElseThrow();

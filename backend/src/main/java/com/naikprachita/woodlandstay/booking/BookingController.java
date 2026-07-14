@@ -1,5 +1,9 @@
 package com.naikprachita.woodlandstay.booking;
 
+import com.naikprachita.woodlandstay.booking.dto.BookingRequest;
+import com.naikprachita.woodlandstay.booking.dto.BookingResponse;
+import com.naikprachita.woodlandstay.booking.dto.BookingUpdateRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,34 +18,34 @@ public class BookingController {
     private final BookingService bookingService;
 
     @GetMapping
-    List<Booking> getAllBookings(){
+    public List<BookingResponse> getAllBookings(){
         return bookingService.getAllBookings();
     }
 
     @GetMapping("/guest/{guestId}")
-    List<Booking> getAllBookings(@PathVariable Long guestId){
+    public List<BookingResponse> getAllBookings(@PathVariable Long guestId){
         return bookingService.getGuestBookings(guestId);
     }
 
     @GetMapping("/{bookingId}")
-    Booking getBooking(@PathVariable Long bookingId){
+    public BookingResponse getBooking(@PathVariable Long bookingId){
         return bookingService.getBooking(bookingId);
     }
 
     @PatchMapping("/{bookingId}")
-    public ResponseEntity<Void> updateGuest(@PathVariable Long bookingId, @RequestBody Booking booking){
-        bookingService.updateBookingDetails(bookingId,booking.getNumGuests(),booking.getObservations());
+    public ResponseEntity<Void> updateGuest(@PathVariable Long bookingId, @RequestBody BookingUpdateRequest request){
+        bookingService.updateBookingDetails(bookingId,request.getNumGuests(),request.getObservations());
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/cabin/{cabinId}")
-    public List<Booking> getBookedDates(@PathVariable Long cabinId){
+    public List<BookingResponse> getBookedDates(@PathVariable Long cabinId){
         return bookingService.getBookedDates(cabinId);
     }
 
     @PutMapping("/booking")
-    public void createBooking(@RequestBody CreateBookingRequest  booking){
-        bookingService.createBooking(booking);
+    public void createBooking(@Valid  @RequestBody BookingRequest request){
+        bookingService.createBooking(request);
     }
 
     @DeleteMapping("/{bookingId}")
