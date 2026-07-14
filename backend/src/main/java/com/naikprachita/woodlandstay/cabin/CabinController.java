@@ -1,5 +1,6 @@
 package com.naikprachita.woodlandstay.cabin;
 
+import com.naikprachita.woodlandstay.cabin.dto.CabinResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +17,12 @@ public class CabinController {
     private final CabinService cabinService;
 
     @GetMapping
-    public List<Cabin> getCabins() {
+    public List<CabinResponse> getCabins() {
         return cabinService.getAllCabins();
     }
 
     @GetMapping("/{id}")
-    public Cabin getCabin(@PathVariable Long id) {
+    public CabinResponse getCabin(@PathVariable Long id) {
         return cabinService.getCabin(id);
     }
 }

@@ -1,5 +1,7 @@
 package com.naikprachita.woodlandstay.cabin;
 
+import com.naikprachita.woodlandstay.cabin.dto.CabinResponse;
+import com.naikprachita.woodlandstay.cabin.mapper.CabinMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,15 @@ import java.util.List;
 public class CabinService {
 
     private final CabinRepository cabinRepository;
+    private final CabinMapper cabinMapper;
 
-    public List<Cabin> getAllCabins() {
-        return cabinRepository.findAll();
+    public List<CabinResponse> getAllCabins() {
+        return cabinRepository.findAll().stream().map(cabinMapper::toResponse).toList();
     }
 
-    public Cabin getCabin(Long id) {
-        return cabinRepository.findById(id)
-                .orElseThrow();
+    public CabinResponse getCabin(Long id) {
+        Cabin cabin = cabinRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Cabin not found"));
+        return cabinMapper.toResponse(cabin);
     }
 }
