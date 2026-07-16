@@ -5,9 +5,9 @@ import { getBooking, getCabin } from "@/app/_lib/data-service";
 async function page({ params }) {
   const id = params.bookingId;
   const booking = await getBooking(id);
-  const { id: guestId } = booking.guest;
-  const { cabinId, maxCapacity } = booking?.cabin;
-  const { numGuests, observations } = booking;
+  const cabin = await getCabin(booking.cabinId);
+  const { guestId, observations, numGuests } = booking;
+  const { maxCapacity } = cabin;
   return (
     <div className="grid mb-2 grid-rows-[4rem_1fr] gap-4 ">
       <div className="bg-primary-800 flex items-center justify-between px-6">

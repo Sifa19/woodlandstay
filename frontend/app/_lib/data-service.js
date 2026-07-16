@@ -124,7 +124,7 @@ export async function createBooking(newBooking) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/booking`,
     {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -133,7 +133,6 @@ export async function createBooking(newBooking) {
   );
 
   if (!response.ok) {
-    console.log(await response.text());
     throw new Error("Booking could not be created");
   }
 }
@@ -151,7 +150,6 @@ export async function updateGuest(email, updatedFields) {
   );
 
   if (!response.ok) {
-    console.log(await response.text());
     throw new Error("Guest could not be updated");
   }
 }
@@ -169,7 +167,6 @@ export async function updateBooking(id, updatedFields) {
   );
 
   if (!response.ok) {
-    console.log(await response.text());
     throw new Error("Guest could not be updated");
   }
 }

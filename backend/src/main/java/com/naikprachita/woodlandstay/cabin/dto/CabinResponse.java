@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CabinResponse {
+
+    private Long id;
+
     private String name;
 
     private Integer maxCapacity;

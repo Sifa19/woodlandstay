@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class CabinMapper {
     public CabinResponse toResponse(Cabin cabin){
         return CabinResponse.builder()
+                .id(cabin.getId())
                 .name(cabin.getName())
                 .maxCapacity(cabin.getMaxCapacity())
                 .regularPrice(cabin.getRegularPrice())

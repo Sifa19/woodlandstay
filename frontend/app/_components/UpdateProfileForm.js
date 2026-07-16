@@ -6,7 +6,6 @@ import about from "@/public/about-1.jpg";
 
 function UpdateProfileForm({ children, guest }) {
   const { fullName, email, nationality, nationalId, countryFlag } = guest;
-  console.log("guest", guest);
   return (
     <form
       className=" bg-primary-900 py-8 px-12 text-lg flex flex-col gap-6"
@@ -34,6 +33,7 @@ function UpdateProfileForm({ children, guest }) {
       </div>
 
       <input type="hidden" name="emailId" value={email} />
+      <input type="hidden" name="fullName" value={fullName} />
 
       <div className="space-y-2">
         {/* SelectCountry Component */}

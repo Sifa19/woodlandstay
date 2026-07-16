@@ -4,7 +4,6 @@ import {
   HomeIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
-import SignOutButton from "./SignOutButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -65,7 +64,6 @@ function SideNavigation() {
             </svg>
             <span>Admin Section</span>
           </Link>
-          <SignOutButton />
         </li>
       </ul>
     </nav>

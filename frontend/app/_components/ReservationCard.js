@@ -6,18 +6,24 @@ import DeleteReservation from "./DeleteReservation";
 import about from "@/public/about-1.jpg";
 
 function ReservationCard({ booking, onDelete }) {
-  const { id, startDate, endDate, numNights, numGuests, totalPrice, cabin } =
-    booking;
-  const { name, image } = cabin;
+  const {
+    id,
+    startDate,
+    endDate,
+    numNights,
+    numGuests,
+    totalPrice,
+    cabinName,
+  } = booking;
   return (
     <div className="text-sm grid grid-cols-[7rem_1fr_6rem] mb-4 border border-primary-800">
       <div className="relative h-full ">
-        <Image fill src={about} alt={name} />
+        <Image fill src={about} alt={cabinName} />
       </div>
 
       <div className="flex flex-col px-4 py-2">
         <div className="text-xl flex justify-between mb-2">
-          {numNights} nights in Cabin {name}
+          {numNights} nights in Cabin {cabinName}
           {isPast(new Date(startDate)) ? (
             <span className="bg-yellow-800 text-yellow-200 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm">
               past

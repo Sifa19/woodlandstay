@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import {
   deleteBooking,
   getBookings,
@@ -25,6 +26,7 @@ export async function updateGuestProfile(data) {
 
   //if (!session) throw new Error("You must be logged in");
 
+  const fullName = data.get("fullName");
   const email = data.get("emailId");
   const nationalId = data.get("nationalId");
   const [nationality, countryFlag] = data.get("nationality").split("-");
@@ -36,9 +38,12 @@ export async function updateGuestProfile(data) {
 
   //data to be updated
   const updateData = {
+    fullName: fullName,
+    email: email,
     nationality: nationality,
     countryFlag: countryFlag,
     nationalId: nationalId,
+    createdAt: new Date().toISOString(),
   };
 
   //======= #3. UPDATE THE DATA IN DATABASE =======

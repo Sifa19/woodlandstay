@@ -1,4 +1,3 @@
-import { auth } from "../_lib/auth";
 import { getGuest } from "../_lib/data-service";
 
 export const metadata = {

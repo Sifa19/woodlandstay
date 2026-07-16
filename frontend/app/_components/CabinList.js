@@ -3,7 +3,6 @@ import CabinCard from "@/app/_components/CabinCard";
 
 async function CabinList({ filter }) {
   const cabins = await getCabins();
-  console.log("Cabins:", cabins.length);
 
   if (cabins.length === 0) return null;
 

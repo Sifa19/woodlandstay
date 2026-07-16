@@ -9,6 +9,7 @@ public class BookingMapper {
 
     public BookingResponse toResponse(Booking booking){
         return BookingResponse.builder()
+                .id(booking.getId())
                 .cabinId(booking.getCabin().getId())
                 .cabinName(booking.getCabin().getName())
                 .guestId(booking.getGuest().getId())

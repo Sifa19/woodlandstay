@@ -14,7 +14,7 @@ function isAlreadyBooked(range, datesArr) {
   return (
     range?.from &&
     range?.to &&
-    datesArr.some((date) =>
+    datesArr?.some((date) =>
       isWithinInterval(date, { start: range?.from, end: range?.to }),
     )
   );
@@ -48,7 +48,7 @@ function DateSelector({ settings, bookedDates, cabin }) {
         numberOfMonths={2}
         disabled={(currDate) =>
           isPast(currDate) ||
-          bookedDates.some((date) => isSameDay(date, currDate))
+          bookedDates?.some((date) => isSameDay(date, currDate))
         }
       />
       <div
