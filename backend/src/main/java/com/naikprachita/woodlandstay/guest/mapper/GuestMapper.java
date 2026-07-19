@@ -9,11 +9,13 @@ import org.springframework.stereotype.Component;
 public class GuestMapper {
     public GuestResponse toResponse(Guest guest){
         return GuestResponse.builder()
+                .id(guest.getId())
                 .fullName(guest.getFullName())
                 .email(guest.getEmail())
                 .nationalId(guest.getNationalId())
                 .nationality(guest.getNationality())
                 .countryFlag(guest.getCountryFlag())
+                .createdAt(guest.getCreatedAt())
                 .build();
     }
 

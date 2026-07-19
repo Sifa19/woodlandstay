@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @Data
 public class GuestRequest {
 
+    private Long id;
+
     @NotNull
     private String fullName;
 

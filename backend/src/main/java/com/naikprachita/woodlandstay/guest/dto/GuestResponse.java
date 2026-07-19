@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class GuestResponse {
+
+    private Long id;
+
     private String fullName;
 
     private String email;
