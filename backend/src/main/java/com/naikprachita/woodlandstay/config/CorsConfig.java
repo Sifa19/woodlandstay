@@ -12,26 +12,26 @@ public class CorsConfig {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
 
-            @Override
-            public void addCorsMappings(
-                    CorsRegistry registry) {
-
-                registry.addMapping("/**")
-                        .allowedOrigins(
-                                "http://localhost:3000")
-                        .allowedMethods("*");
-            }
-
 //            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
+//            public void addCorsMappings(
+//                    CorsRegistry registry) {
 //
 //                registry.addMapping("/**")
 //                        .allowedOrigins(
-//                                "https://woodlandstay.vercel.app"
-//                        )
-//                        .allowedMethods("GET","POST","PUT","PATCH","DELETE")
-//                        .allowedHeaders("*");
+//                                "http://localhost:3000")
+//                        .allowedMethods("*");
 //            }
+
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+
+                registry.addMapping("/**")
+                        .allowedOrigins(
+                                "https://woodlandstay-fawn.vercel.app/"
+                        )
+                        .allowedMethods("GET","POST","PUT","PATCH","DELETE")
+                        .allowedHeaders("*");
+            }
         };
 
 
