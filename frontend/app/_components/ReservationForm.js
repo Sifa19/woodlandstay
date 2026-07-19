@@ -4,6 +4,7 @@ import { differenceInDays, isSameDay } from "date-fns";
 import { useReservation } from "./ReservationContext";
 import { createBooking } from "../_lib/actions";
 import Button from "./Button";
+import Image from "next/image";
 
 function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
@@ -32,7 +33,7 @@ function ReservationForm({ cabin, user }) {
         <p>Logged in as</p>
         <div className="md:flex md:gap-2 items-center">
           {user.name}
-          <img
+          <Image
             src={user.image}
             alt={user.name}
             referrerPolicy="no-referrer"
