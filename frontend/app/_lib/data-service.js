@@ -10,18 +10,25 @@ export async function getCabin(id) {
   return response.json();
 }
 
-export const getCabins = async function () {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/cabins`,
-    {
-      cache: "no-store",
-    },
-  );
+export async function getCabins() {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/api/cabins`;
+
+  console.log("Fetching:", url);
+
+  const response = await fetch(url, {
+    cache: "no-store",
+  });
+
+  console.log("Status:", response.status);
+
   if (!response.ok) {
+    const text = await response.text();
+    console.log(text);
     throw new Error("Cabins could not be loaded");
   }
+
   return response.json();
-};
+}
 
 export async function getGuest(email) {
   const response = await fetch(
